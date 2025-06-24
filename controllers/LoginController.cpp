@@ -1,0 +1,25 @@
+#include "LoginController.h"
+#include <string>
+#include "utils/TokenGenerator.h"
+#include "core/TokenStore.h"
+Response LoginController::handle(const Request &req)
+{
+    auto json = req.body;
+    std::string username = json["username"];
+    std::string password = json["password"];
+
+
+    if(username == "admin" && password == "123")
+    {
+        std::string token = TokenGenerator::generate();
+        TokenStore::instance().storeRole(token, Role::ADMIN);
+        return {200, token};
+    }
+    else if(username == "user" && password == "123")
+    {
+        std::string token = TokenGenerator::generate();
+        TokenStore::instance().storeRole(token, Role::USER);
+        return {200, token};
+    }
+    return {200, "Fail Login!!!"};
+}

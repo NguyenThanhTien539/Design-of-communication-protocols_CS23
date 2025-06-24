@@ -5,12 +5,11 @@
 #include <sstream>
 
 class Request {
-private:
+public:
     std::string method;
     std::string path;
     std::string token;
     std::map <std::string, std::string> body;
-public:
     inline friend std::ostream &operator<<(std::ostream &os, const Request& req){
         std::ostringstream oss;
         oss << "METHOD: " << req.method << '\n';
