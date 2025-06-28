@@ -7,6 +7,7 @@ private:
     int status_code;
     std::string status_test;
 public:
+    Response(){}
     Response(int code, std::string test) : status_code(code), status_test(test){}
     static Response unauthorized();
     static Response error();

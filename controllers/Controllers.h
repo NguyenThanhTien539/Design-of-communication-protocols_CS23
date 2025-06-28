@@ -1,3 +1,4 @@
+#pragma once
 #include "core/Response.h"
 #include "core/Request.h"
 

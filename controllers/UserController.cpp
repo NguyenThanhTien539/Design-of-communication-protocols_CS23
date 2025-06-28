@@ -1,5 +1,6 @@
 #include "UserController.h"
 
-Response handle(const Request& req){
+Response UserController::handle(const Request &req)
+{
     return{200, "Hello, user"};
 }

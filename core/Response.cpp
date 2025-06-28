@@ -12,6 +12,6 @@ Response Response::error()
 
 std::string Response::toCS23Format() const
 {
-    std::string s = status_code + " " + status_test;
+    std::string s = std::to_string(status_code) + " " + status_test;
     return s;
 }

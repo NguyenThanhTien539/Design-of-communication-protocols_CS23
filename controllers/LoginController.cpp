@@ -9,13 +9,13 @@ Response LoginController::handle(const Request &req)
     std::string password = json["password"];
 
 
-    if(username == "admin" && password == "123")
+    if(username == "admin" && password == "123456")
     {
         std::string token = TokenGenerator::generate();
         TokenStore::instance().storeRole(token, Role::ADMIN);
         return {200, token};
     }
-    else if(username == "user" && password == "123")
+    else if(username == "user" && password == "123456")
     {
         std::string token = TokenGenerator::generate();
         TokenStore::instance().storeRole(token, Role::USER);
